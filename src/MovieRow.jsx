@@ -6,10 +6,10 @@ import GlassOnion from "./assets/glass-onion.jfif";
 import StrangeWorld from "./assets/strange-world.jfif";
 import Zombieland from "./assets/zombieland.jfif";
 
-function movieRow() {
+function movieRow(props) {
   return (
     <div className="movie-row">
-      <h4>Released in the Past Year</h4>
+      <h4>{props.title}</h4>
       <div className="images-container">
         <img src={Encanto} alt="encanto" />
         <img src={GlassOnion} alt="The movie glass onion" />

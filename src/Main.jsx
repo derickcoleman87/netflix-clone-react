@@ -5,7 +5,9 @@ import MovieRow from "./MovieRow.jsx";
 function main() {
   return (
     <div className="main">
-      <MovieRow />
+      <MovieRow title={"Released in the Past Year"} />
+      <MovieRow title={"Trending Now"} />
+      <MovieRow title={"My List"} />
     </div>
   );
 }

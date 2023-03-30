@@ -51,6 +51,7 @@ span {
   opacity: 0.8;
   border-radius: 8px;
   padding-right: 5px;
+  border: none;
 }
 
 .head-main__left-section {
