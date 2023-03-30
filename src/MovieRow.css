@@ -1,0 +1,15 @@
+.movie-row {
+  margin: 10px;
+}
+
+.images-container {
+  padding-left: 10px;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+}
+
+img {
+  height: 100%;
+  margin: 5px;
+}

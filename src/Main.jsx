@@ -4,7 +4,7 @@ import MovieRow from "./MovieRow.jsx";
 
 function main() {
   return (
-    <div>
+    <div className="main">
       <MovieRow />
     </div>
   );
