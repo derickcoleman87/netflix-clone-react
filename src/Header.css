@@ -48,7 +48,7 @@ span {
 .more-info {
   background-color: #362d2d;
   color: white;
-  opacity: 0.8;
+  /* opacity: 0.8; */
   border-radius: 8px;
   padding-right: 5px;
   border: none;
