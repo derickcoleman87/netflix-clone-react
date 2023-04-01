@@ -8,9 +8,9 @@ function App() {
   const [openModal, setOpenModal] = useState(false);
   return (
     <div className="app">
-      <Header />
+      <Header setOpenModal={setOpenModal} />
       <Main />
-      {openModal ? <Modal /> : null}
+      {openModal ? <Modal setOpenModal={setOpenModal} /> : null}
     </div>
   );
 }

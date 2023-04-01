@@ -1,7 +1,7 @@
 import React from "react";
 import "./Header.css";
 
-function Header() {
+function Header({ setOpenModal }) {
   return (
     <header className="Header">
       <div className="header__top-row">
@@ -32,7 +32,7 @@ function Header() {
           <button className="play">
             <i id="play" class="fa-solid fa-play"></i>Play
           </button>
-          <button className="more-info">
+          <button onClick={() => setOpenModal(true)} className="more-info">
             <i class="fa-solid fa-circle-info"></i>More info
           </button>
         </div>
