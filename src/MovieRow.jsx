@@ -6,7 +6,7 @@ import GlassOnion from "./assets/glass-onion.jfif";
 import StrangeWorld from "./assets/strange-world.jfif";
 import Zombieland from "./assets/zombieland.jfif";
 
-function movieRow(props) {
+function MovieRow(props) {
   return (
     <div className="movie-row">
       <h4>{props.title}</h4>
@@ -21,4 +21,4 @@ function movieRow(props) {
   );
 }
 
-export default movieRow;
+export default MovieRow;

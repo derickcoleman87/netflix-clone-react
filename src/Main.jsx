@@ -2,7 +2,7 @@ import React from "react";
 import "./Main.css";
 import MovieRow from "./MovieRow.jsx";
 
-function main() {
+function Main() {
   return (
     <div className="main">
       <MovieRow title={"Released in the Past Year"} />
@@ -12,4 +12,4 @@ function main() {
   );
 }
 
-export default main;
+export default Main;
