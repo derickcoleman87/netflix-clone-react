@@ -1,16 +1,15 @@
 import React, { useEffect, useState } from "react";
 import "./App.css";
 import Header from "./Header.jsx";
-import Main from "./Main.jsx";
 import Modal from "./Modal.jsx";
+import TryMapInComponent from "./TryMapInComponent";
+import MovieRow from "./MovieRow.jsx";
 
 function App() {
   const [openModal, setOpenModal] = useState(false);
   const [rowData, setRowData] = useState([]);
 
   useEffect(() => {
-    let imgUrl = "https://image.tmdb.org/t/p/w500";
-
     let token =
       "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI0ODNjNzgwYTI2OTJmMDY2ZTFmNDRmZDE0MDk0OWZjMyIsInN1YiI6IjY0MjgwODM3OGRlMGFlMDBkNWYyZTQ3YSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.zfuZxZ3HeVCWihkkBfM8sAgPJWT_ujyJh1pjy4XUGoM";
 
@@ -33,6 +32,7 @@ function App() {
       let promises = responses.map((response) => response.json());
 
       Promise.all(promises).then((allData) => {
+        console.log("allData", allData);
         setRowData(allData);
       });
     });
@@ -41,8 +41,13 @@ function App() {
   return (
     <div className="app">
       <Header setOpenModal={setOpenModal} />
-      <Main />
-      {openModal ? <Modal setOpenModal={setOpenModal} /> : null}
+      <main>
+        <TryMapInComponent listOfNums={[5, 6, 3, 6, 76]} />
+        {openModal ? <Modal setOpenModal={setOpenModal} /> : null}
+        {rowData.map((rowDataObject) => (
+          <MovieRow key={rowDataObject.id} data={rowDataObject} />
+        ))}
+      </main>
     </div>
   );
 }
