@@ -9,6 +9,11 @@ header {
   justify-content: space-between;
 }
 
+.header_top-right img {
+  height: 30px;
+  border-radius: 5px;
+}
+
 i {
   color: white;
   padding: 10px;

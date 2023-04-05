@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import "./App.css";
 import Header from "./Header.jsx";
 import Modal from "./Modal.jsx";
-import TryMapInComponent from "./TryMapInComponent";
 import MovieRow from "./MovieRow.jsx";
 
 function App() {
@@ -42,7 +41,6 @@ function App() {
     <div className="app">
       <Header setOpenModal={setOpenModal} />
       <main>
-        <TryMapInComponent listOfNums={[5, 6, 3, 6, 76]} />
         {openModal ? <Modal setOpenModal={setOpenModal} /> : null}
         {rowData.map((rowDataObject) => (
           <MovieRow key={rowDataObject.id} data={rowDataObject} />

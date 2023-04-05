@@ -1,5 +1,8 @@
 import React from "react";
 import "./Header.css";
+import { IoSearch } from "react-icons/io5";
+import { IoMdNotificationsOutline } from "react-icons/io";
+import avatarPhoto from "./assets/netflix-avatar.png";
 
 function Header({ setOpenModal }) {
   return (
@@ -10,8 +13,11 @@ function Header({ setOpenModal }) {
           <span>Browse</span>
         </div>
         <div className="header_top-right">
-          <i className="fa-solid fa-magnifying-glass"></i>
-          <i className="fa-solid fa-bell"></i>
+          <IoSearch />
+          <IoMdNotificationsOutline />
+          <img src={avatarPhoto} alt="profile icon" />
+          {/* <i className="fa-solid fa-magnifying-glass"></i>
+          <i className="fa-solid fa-bell"></i> */}
         </div>
       </div>
       <div className="header__main">
