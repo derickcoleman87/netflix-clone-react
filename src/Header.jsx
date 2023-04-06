@@ -2,6 +2,10 @@ import React from "react";
 import "./Header.css";
 import { IoSearch } from "react-icons/io5";
 import { IoMdNotificationsOutline } from "react-icons/io";
+import { BsPencil } from "react-icons/bs";
+import { BiHelpCircle } from "react-icons/bi";
+import { MdOutlineManageAccounts } from "react-icons/md";
+import { RiAccountBoxLine } from "react-icons/ri";
 import avatarPhoto from "./assets/netflix-avatar.png";
 
 function Header({ setOpenModal }) {
@@ -31,17 +35,38 @@ function Header({ setOpenModal }) {
               <ul>
                 <li>
                   <img src={avatarPhoto} alt="" />
-                  <span>Chelsea</span>
+                  <p>Chelsea</p>
                 </li>
                 <li>
                   <img src={avatarPhoto} alt="" />
-                  <span>Austin</span>
+                  <p>Austin</p>
                 </li>
                 <li>
                   <img src={avatarPhoto} alt="" />
-                  <span>Brodie</span>
+                  <p>Brodie</p>
                 </li>
               </ul>
+              <hr />
+              <ul>
+                <li>
+                  <BsPencil className="tooltip-icon" />
+                  <p>Manage Profile</p>
+                </li>
+                <li>
+                  <RiAccountBoxLine className="tooltip-icon" />
+                  <p>Transfer Profile</p>
+                </li>
+                <li>
+                  <MdOutlineManageAccounts className="tooltip-icon" />
+                  <p>Account</p>
+                </li>
+                <li>
+                  <BiHelpCircle className="tooltip-icon" />
+                  <p>Help Center</p>
+                </li>
+              </ul>
+              <hr />
+              <p className="tooltip-sign-out">Sign out of Netflix</p>
             </div>
           </div>
           {/* <i className="fa-solid fa-magnifying-glass"></i>
