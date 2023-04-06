@@ -1,5 +1,5 @@
 header {
-  padding: 20px;
+  padding: 5px 20px;
   background-image: url("http://occ-0-1413-1412.1.nflxso.net/dnm/api/v6/6AYY37jfdO6hpXcMjf9Yu5cnmO0/AAAABZRzrdrgF5Z59V8FJFAzWG-s7kX-OqTS1dnLAIch8Sm2ySruAH88YefXwgrUwEiQItFNPAh0Dz3rYhGThz1X3DGAuhq8wSCTXQgP.jpg?r=4a0");
   background-size: cover;
 }
@@ -7,11 +7,25 @@ header {
 .header__top-row {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+}
+
+.header_top-right,
+.header_top-left {
+  display: flex;
+  align-items: center;
 }
 
 .header_top-right img {
   height: 30px;
   border-radius: 5px;
+  cursor: pointer;
+}
+
+.header-icon {
+  font-size: 35px;
+  padding: 0 5px;
+  cursor: pointer;
 }
 
 i {
@@ -26,7 +40,6 @@ i {
 
 h1 {
   display: inline-block;
-  padding: 10px;
 }
 
 .red {
@@ -41,6 +54,10 @@ span {
   padding: 10px;
 }
 
+#browse {
+  cursor: pointer;
+}
+
 .play {
   background-color: white;
   color: black;
@@ -48,6 +65,7 @@ span {
   border: none;
   margin: 10px;
   border-radius: 8px;
+  cursor: pointer;
 }
 
 .more-info {
@@ -57,8 +75,31 @@ span {
   border-radius: 8px;
   padding-right: 5px;
   border: none;
+  cursor: pointer;
 }
 
 .head-main__left-section {
   width: 40px;
+}
+
+.tooltip-wrapper {
+  position: relative;
+}
+
+.tooltip {
+  position: absolute;
+  background-color: black;
+  opacity: 0.8;
+  padding: 10px;
+  top: 40px;
+  right: 10px;
+  display: none;
+}
+
+.tooltip-wrapper:hover .tooltip {
+  display: block;
+}
+
+.tooltip ul {
+  list-style-type: none;
 }

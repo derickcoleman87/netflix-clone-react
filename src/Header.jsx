@@ -10,12 +10,40 @@ function Header({ setOpenModal }) {
       <div className="header__top-row">
         <div className="header_top-left">
           <h1 className="red">Netflix</h1>
-          <span>Browse</span>
+
+          <div className="tooltip-wrapper">
+            <span id="browse">Browse</span>
+            <div className="tooltip"></div>
+          </div>
         </div>
+
         <div className="header_top-right">
-          <IoSearch />
-          <IoMdNotificationsOutline />
-          <img src={avatarPhoto} alt="profile icon" />
+          <IoSearch className="header-icon" />
+          <div className="tooltip-wrapper">
+            <IoMdNotificationsOutline className="header-icon" />
+            <div className="tooltip">
+              <p>No Recent Notifications</p>
+            </div>
+          </div>
+          <div className="tooltip-wrapper">
+            <img src={avatarPhoto} alt="profile icon" />
+            <div className="tooltip">
+              <ul>
+                <li>
+                  <img src={avatarPhoto} alt="" />
+                  <span>Chelsea</span>
+                </li>
+                <li>
+                  <img src={avatarPhoto} alt="" />
+                  <span>Austin</span>
+                </li>
+                <li>
+                  <img src={avatarPhoto} alt="" />
+                  <span>Brodie</span>
+                </li>
+              </ul>
+            </div>
+          </div>
           {/* <i className="fa-solid fa-magnifying-glass"></i>
           <i className="fa-solid fa-bell"></i> */}
         </div>
