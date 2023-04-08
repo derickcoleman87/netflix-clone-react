@@ -1,18 +1,14 @@
 import React from "react";
 import "./MovieRow.css";
+import Movie from "./Movie";
 
 function MovieRow(props) {
-  const imgUrl = "https://image.tmdb.org/t/p/w500/";
   return (
     <div className="movie-row">
       <h4>{props.data.name}</h4>
       <div className="images-container">
         {props.data.items.map((movie) => (
-          <img
-            src={imgUrl + movie.poster_path}
-            alt={movie.name}
-            key={`${Math.random()}-${movie.id}`}
-          />
+          <Movie data={movie} key={`${Math.random()}-${movie.id}`} />
         ))}
       </div>
     </div>

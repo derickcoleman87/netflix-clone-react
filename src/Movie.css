@@ -1,0 +1,32 @@
+.movie {
+  transition: all 0.2s linear;
+  margin: 5px;
+}
+
+.movie:hover {
+  transform: scale(1.5);
+  transition: all 0.2s linear 0.5s;
+}
+
+.green {
+  color: green;
+}
+
+.border {
+  border: 1px solid white;
+  font-size: 12px;
+}
+
+.movie-details {
+  background-color: black;
+  padding: 10px;
+  position: relative;
+  z-index: 1;
+  transition: all 0.2s linear;
+  visibility: hidden;
+}
+
+.movie:hover .movie-details {
+  visibility: visible;
+  transition: all 0.2s linear 0.5s;
+}
