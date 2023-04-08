@@ -17,7 +17,16 @@ function Header({ setOpenModal }) {
 
           <div className="tooltip-wrapper">
             <span id="browse">Browse</span>
-            <div className="tooltip"></div>
+            <div className="tooltip browse">
+              <ul className="browse-dropdown">
+                <li>Home</li>
+                <li>TV Shows</li>
+                <li>Movies</li>
+                <li>New & Popular</li>
+                <li>My List</li>
+                <li>Browse by Languages</li>
+              </ul>
+            </div>
           </div>
         </div>
 
@@ -25,13 +34,13 @@ function Header({ setOpenModal }) {
           <IoSearch className="header-icon" />
           <div className="tooltip-wrapper">
             <IoMdNotificationsOutline className="header-icon" />
-            <div className="tooltip">
+            <div className="tooltip right">
               <p>No Recent Notifications</p>
             </div>
           </div>
           <div className="tooltip-wrapper">
             <img src={avatarPhoto} alt="profile icon" />
-            <div className="tooltip">
+            <div className="tooltip right">
               <ul>
                 <li>
                   <img src={avatarPhoto} alt="" />

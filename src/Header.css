@@ -91,9 +91,17 @@ span {
   background-color: black;
   opacity: 0.9;
   top: 40px;
-  right: 10px;
   display: none;
 }
+
+/* .tooltip-browse {
+  position: absolute;
+  background-color: black;
+  opacity: 0.9;
+  top: 40px;
+  right: 10px;
+  display: none;
+} */
 
 .tooltip-wrapper:hover .tooltip {
   display: block;
@@ -101,16 +109,17 @@ span {
 
 .tooltip ul {
   list-style-type: none;
-  padding: 10px;
 }
 
 .tooltip li {
+  padding: 5px 10px;
   display: flex;
   align-items: center;
   white-space: nowrap;
 }
 
-.tooltip li img {
+.tooltip li img,
+.tooltip li .icon {
   margin-right: 10px;
 }
 
@@ -120,5 +129,21 @@ span {
 }
 
 .tooltip-icon {
-  /* padding-right: 5px; */
+  padding-right: 5px;
+}
+
+.browse-dropdown li {
+  display: flex;
+  justify-content: center;
+  white-space: nowrap;
+}
+
+.tooltip.right {
+  right: 0px;
+  left: auto;
+}
+
+.tooltip.browse {
+  left: 0;
+  right: auto;
 }
