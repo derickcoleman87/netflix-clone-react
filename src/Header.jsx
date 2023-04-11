@@ -38,7 +38,7 @@ function Header({ setOpenModal }) {
               <p>No Recent Notifications</p>
             </div>
           </div>
-          <div className="tooltip-wrapper">
+          <div className="tooltip-wrapper" style={{ marginLeft: "10px" }}>
             <img src={avatarPhoto} alt="profile icon" />
             <div className="tooltip right">
               <ul>
