@@ -2,14 +2,14 @@ import React from "react";
 import "./MovieRow.css";
 import Movie from "./Movie";
 
-function MovieRow(props) {
+function MovieRow({ data }) {
   return (
     <div className="movie-row">
-      <h4>{props.data.name}</h4>
+      <h4>{data.name}</h4>
       <div className="images-container">
         <div className="left-arrow">{"<"}</div>
         <div className="right-arrow">{">"}</div>
-        {props.data.items.map((movie) => (
+        {data.items.map((movie) => (
           <Movie data={movie} key={`${Math.random()}-${movie.id}`} />
         ))}
       </div>
