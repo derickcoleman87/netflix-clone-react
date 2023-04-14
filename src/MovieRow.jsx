@@ -7,6 +7,8 @@ function MovieRow(props) {
     <div className="movie-row">
       <h4>{props.data.name}</h4>
       <div className="images-container">
+        <div className="left-arrow">{"<"}</div>
+        <div className="right-arrow">{">"}</div>
         {props.data.items.map((movie) => (
           <Movie data={movie} key={`${Math.random()}-${movie.id}`} />
         ))}
