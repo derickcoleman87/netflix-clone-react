@@ -3,7 +3,7 @@ import "./Movie.css";
 
 function Movie({ data }) {
   const imgUrl = "https://image.tmdb.org/t/p/w500/";
-  console.log(data);
+  // console.log(data);
   return (
     <div className="movie">
       <img src={imgUrl + data.poster_path} alt={data.name} />
@@ -19,7 +19,7 @@ function Movie({ data }) {
         </div>
         <div className="movie-details_genre">
           {data.genre_ids.map((genreId) => (
-            <span>{genreId}</span>
+            <span key={genreId}>{genreId}</span>
           ))}
         </div>
       </div>

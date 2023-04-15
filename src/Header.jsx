@@ -98,10 +98,10 @@ function Header({ setOpenModal }) {
             nihil expedita illum blanditiis, quas magni alias. Quidem, nisi.
           </p>
           <button className="play">
-            <i id="play" class="fa-solid fa-play"></i>Play
+            <i id="play" className="fa-solid fa-play"></i>Play
           </button>
           <button onClick={() => setOpenModal(true)} className="more-info">
-            <i class="fa-solid fa-circle-info"></i>More info
+            <i className="fa-solid fa-circle-info"></i>More info
           </button>
         </div>
       </div>

@@ -1,6 +1,6 @@
 .movie {
   transition: all 0.2s linear;
-  margin: 0 5px;
+  margin: 0 2px;
   display: flex;
   flex-direction: column;
   width: 150px;
