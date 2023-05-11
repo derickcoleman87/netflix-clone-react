@@ -12,7 +12,7 @@ function MovieRow({ data }) {
     });
   }, []);
 
-  let movieWidth = 150;
+  let movieWidth = 225;
   let leftMargin = 2;
   let rightMargin = 2;
   let totalMovieWidth = movieWidth + leftMargin + rightMargin;
@@ -33,15 +33,16 @@ function MovieRow({ data }) {
     );
   }
 
-  function getArrayOfMovies() {
-    let allMovies = data.items;
-    let numOfMoviesPerPage = getNumberOfMoviesPerPage();
-    let beginning = page * numOfMoviesPerPage;
-    let end = page * numOfMoviesPerPage + numOfMoviesPerPage;
-    return allMovies.slice(beginning, end);
-  }
+  // function getArrayOfMovies() {
+  //   let allMovies = data.items;
+  //   let numOfMoviesPerPage = getNumberOfMoviesPerPage();
+  //   let beginning = page * numOfMoviesPerPage;
+  //   let end = page * numOfMoviesPerPage + numOfMoviesPerPage;
+  //   return allMovies.slice(beginning, end);
+  // }
 
-  let arrayOfMoviesForCurrentPage = getArrayOfMovies();
+  // let arrayOfMoviesForCurrentPage = getArrayOfMovies();
+  let numOfMoviesPerPage = getNumberOfMoviesPerPage();
   let lastPageNumber = getLastPageNumber();
 
   return (
@@ -56,6 +57,13 @@ function MovieRow({ data }) {
         >
           {"<"}
         </div>
+        {data.items.map((movie) => (
+          <Movie
+            data={movie}
+            key={`${Math.random()}-${movie.id}`}
+            translate={-numOfMoviesPerPage * page * 229}
+          />
+        ))}
         <div
           className="right-arrow"
           onClick={() => {
@@ -64,9 +72,6 @@ function MovieRow({ data }) {
         >
           {">"}
         </div>
-        {arrayOfMoviesForCurrentPage.map((movie) => (
-          <Movie data={movie} key={`${Math.random()}-${movie.id}`} />
-        ))}
       </div>
     </div>
 

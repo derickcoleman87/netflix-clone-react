@@ -4,11 +4,12 @@
 
 .images-container {
   padding-left: 10px;
-  height: 225px;
+
   display: flex;
-  justify-content: center;
+  /* justify-content: center; */
   position: relative;
   margin-top: 10px;
+  overflow: hidden;
 }
 
 .images-container:hover .left-arrow,
