@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./MovieRow.css";
 import Movie from "./Movie";
 
-function MovieRow({ data }) {
+function MovieRow({ data, setMovieModalData }) {
   const [page, setPage] = useState(0);
   const [screenWidth, setScreenWidth] = useState(window.innerWidth);
 
@@ -62,6 +62,7 @@ function MovieRow({ data }) {
             data={movie}
             key={`${Math.random()}-${movie.id}`}
             translate={-numOfMoviesPerPage * page * 229}
+            setMovieModalData={setMovieModalData}
           />
         ))}
         <div

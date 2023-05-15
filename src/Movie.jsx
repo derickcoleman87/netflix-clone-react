@@ -1,11 +1,15 @@
 import React from "react";
 import "./Movie.css";
 
-function Movie({ data, translate }) {
+function Movie({ data, translate, setMovieModalData }) {
   const imgUrl = "https://image.tmdb.org/t/p/w500/";
   // console.log(data);
   return (
-    <div className="movie" style={{ transform: `translateX(${translate}px)` }}>
+    <div
+      className="movie"
+      style={{ transform: `translateX(${translate}px)` }}
+      onMouseEnter={() => setMovieModalData(data)}
+    >
       <img src={imgUrl + data.backdrop_path} alt={data.name} />
       {/* <div className="movie-details">
         <div className="movie-details_top-row"></div>

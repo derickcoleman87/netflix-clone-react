@@ -3,10 +3,12 @@ import "./App.css";
 import Header from "./Header.jsx";
 import Modal from "./Modal.jsx";
 import MovieRow from "./MovieRow.jsx";
+import MovieModal from "./MovieModal";
 
 function App() {
   const [openModal, setOpenModal] = useState(false);
   const [rowData, setRowData] = useState([]);
+  const [movieModalData, setMovieModalData] = useState({});
 
   useEffect(() => {
     let token =
@@ -42,8 +44,13 @@ function App() {
       <Header setOpenModal={setOpenModal} />
       <main>
         {openModal ? <Modal setOpenModal={setOpenModal} /> : null}
+        <MovieModal data={movieModalData} />
         {rowData.map((rowDataObject) => (
-          <MovieRow key={rowDataObject.id} data={rowDataObject} />
+          <MovieRow
+            key={rowDataObject.id}
+            data={rowDataObject}
+            setMovieModalData={setMovieModalData}
+          />
         ))}
       </main>
     </div>
