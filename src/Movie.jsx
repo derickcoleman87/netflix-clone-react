@@ -1,14 +1,22 @@
-import React from "react";
+import React, { useRef } from "react";
 import "./Movie.css";
 
-function Movie({ data, translate, setMovieModalData }) {
+function Movie({ data, translate, setMovieModalData, setMovieModalPosition }) {
   const imgUrl = "https://image.tmdb.org/t/p/w500/";
+  const movieRef = useRef(null);
   // console.log(data);
   return (
     <div
       className="movie"
       style={{ transform: `translateX(${translate}px)` }}
-      onMouseEnter={() => setMovieModalData(data)}
+      onMouseEnter={() => {
+        setMovieModalData(data);
+        let movieClientRect = movieRef.current.getBoundingClientRect();
+        setMovieModalPosition({
+          top: movieClientRect.top,
+          left: movieClientRect.left,
+        });
+      }}
     >
       <img src={imgUrl + data.backdrop_path} alt={data.name} />
       {/* <div className="movie-details">

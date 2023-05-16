@@ -9,6 +9,7 @@ function App() {
   const [openModal, setOpenModal] = useState(false);
   const [rowData, setRowData] = useState([]);
   const [movieModalData, setMovieModalData] = useState({});
+  const [movieModalPosition, setMovieModalPosition] = useState({});
 
   useEffect(() => {
     let token =
@@ -44,12 +45,19 @@ function App() {
       <Header setOpenModal={setOpenModal} />
       <main>
         {openModal ? <Modal setOpenModal={setOpenModal} /> : null}
-        <MovieModal data={movieModalData} />
+        {movieModalData.id !== undefined && (
+          <MovieModal
+            data={movieModalData}
+            setMovieModalData={setMovieModalData}
+            position={movieModalPosition}
+          />
+        )}
         {rowData.map((rowDataObject) => (
           <MovieRow
             key={rowDataObject.id}
             data={rowDataObject}
             setMovieModalData={setMovieModalData}
+            setMovieModalPosition={setMovieModalPosition}
           />
         ))}
       </main>

@@ -27,14 +27,14 @@
   font-size: 12px;
 }
 
-.movie-details {
+/* .movie-details {
   background-color: black;
   padding: 10px;
   position: relative;
   z-index: 1;
   transition: all 0.2s linear;
   visibility: hidden;
-}
+} */
 
 .movie:hover .movie-details {
   visibility: visible;

@@ -1,12 +1,19 @@
 import React from "react";
 import "./MovieModal.css";
 
-function MovieModal({ data }) {
+function MovieModal({ data, position, setMovieModalData }) {
   const imgUrl = "https://image.tmdb.org/t/p/w500/";
-  console.log(data);
+  // console.log(data);
   return (
-    <div className="movie-modal">
-      <img src={imgUrl + data.backdrop_path} alt={data.title} />
+    <div
+      className="movie-modal"
+      style={{ top: `${position.top}`, left: `${position.left}` }}
+      onMouseLeave={() => setMovieModalData({})}
+    >
+      <img
+        src={data.id && imgUrl + data.backdrop_path}
+        alt={data.id && data.original_title}
+      />
       <div className="movie-details">
         <div className="movie-details_top-row"></div>
         <div className="movie-details_info-line">

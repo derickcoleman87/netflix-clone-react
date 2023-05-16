@@ -1,0 +1,13 @@
+.movie-modal {
+  position: absolute;
+  z-index: 100;
+}
+
+.movie-details {
+  width: 100%;
+  background-color: black;
+  padding: 10px;
+  position: relative;
+  z-index: 1;
+  transition: all 0.2s linear;
+}
