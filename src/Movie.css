@@ -36,7 +36,7 @@
   visibility: hidden;
 } */
 
-.movie:hover .movie-details {
+/* .movie:hover .movie-details {
   visibility: visible;
   transition: all 0.2s linear 0.5s;
-}
+} */

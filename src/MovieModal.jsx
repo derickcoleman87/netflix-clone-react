@@ -7,7 +7,10 @@ function MovieModal({ data, position, setMovieModalData }) {
   return (
     <div
       className="movie-modal"
-      style={{ top: `${position.top}`, left: `${position.left}` }}
+      style={{
+        top: `${position.top + window.scrollY}px`,
+        left: `${position.left}px`,
+      }}
       onMouseLeave={() => setMovieModalData({})}
     >
       <img

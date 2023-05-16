@@ -1,6 +1,7 @@
 .movie-modal {
   position: absolute;
   z-index: 100;
+  width: 225px;
 }
 
 .movie-details {
@@ -10,4 +11,8 @@
   position: relative;
   z-index: 1;
   transition: all 0.2s linear;
+}
+
+.movie-modal img {
+  width: 100%;
 }
