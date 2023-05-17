@@ -45,13 +45,12 @@ function App() {
       <Header setOpenModal={setOpenModal} />
       <main>
         {openModal ? <Modal setOpenModal={setOpenModal} /> : null}
-        {movieModalData.id !== undefined && (
-          <MovieModal
-            data={movieModalData}
-            setMovieModalData={setMovieModalData}
-            position={movieModalPosition}
-          />
-        )}
+        <MovieModal
+          data={movieModalData}
+          setMovieModalData={setMovieModalData}
+          position={movieModalPosition}
+        />
+
         {rowData.map((rowDataObject) => (
           <MovieRow
             key={rowDataObject.id}

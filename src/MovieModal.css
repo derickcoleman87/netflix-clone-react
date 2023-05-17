@@ -1,7 +1,7 @@
 .movie-modal {
   position: absolute;
   z-index: 100;
-  width: 225px;
+  width: 0;
 }
 
 .movie-details {
@@ -15,4 +15,28 @@
 
 .movie-modal img {
   width: 100%;
+}
+
+.movie-modal-transition-enter {
+  transform: scale(1);
+  width: 225px;
+}
+.movie-modal-transition-enter-active {
+  transform: scale(1.5);
+  transition: all 300ms;
+  width: 225px;
+}
+.movie-modal-transition-enter-done {
+  width: 225px;
+  transform: scale(1.5);
+}
+.movie-modal-transition-exit {
+  transform: scale(1.5);
+  transition: scale 300ms;
+  width: 225px;
+}
+.movie-modal-transition-exit-active {
+  transform: scale(1);
+  transition: all 300ms;
+  width: 225px;
 }
