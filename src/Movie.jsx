@@ -13,6 +13,7 @@ function Movie({ data, translate, setMovieModalData, setMovieModalPosition }) {
       className="movie"
       style={{ transform: `translateX(${translate}px)` }}
       onMouseEnter={() => {
+        console.log("mouse enter");
         timeout = setTimeout(() => {
           setMovieModalData(data);
           let movieClientRect = movieRef.current.getBoundingClientRect();

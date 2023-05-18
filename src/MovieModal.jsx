@@ -20,11 +20,19 @@ function MovieModal({ data, position, setMovieModalData }) {
           top: `${position.top + window.scrollY}px`,
           left: `${position.left}px`,
         }}
-        onMouseLeave={() => setMovieModalData({})}
+        onMouseLeave={() => {
+          console.log("mouse leave");
+          setMovieModalData((prevMovieModalData) => {
+            let newMovieModalData = Object.assign({}, prevMovieModalData, {
+              id: undefined,
+            });
+            return newMovieModalData;
+          });
+        }}
       >
         <img
-          src={data.id && imgUrl + data.backdrop_path}
-          alt={data.id && data.original_title}
+          src={data.backdrop_path && imgUrl + data.backdrop_path}
+          alt={data.backdrop_path && data.original_title}
         />
         {data.id && (
           <div className="movie-details">
