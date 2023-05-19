@@ -11,7 +11,7 @@ function Movie({ data, translate, setMovieModalData, setMovieModalPosition }) {
     <div
       ref={movieRef}
       className="movie"
-      style={{ transform: `translateX(${translate}px)` }}
+      // style={{ transform: `translateX(${translate}px)` }}
       onMouseEnter={() => {
         console.log("mouse enter");
         timeout = setTimeout(() => {

@@ -22,10 +22,13 @@ function MovieModal({ data, position, setMovieModalData }) {
         }}
         onMouseLeave={() => {
           console.log("mouse leave");
+
           setMovieModalData((prevMovieModalData) => {
             let newMovieModalData = Object.assign({}, prevMovieModalData, {
               id: undefined,
             });
+            console.log(newMovieModalData);
+
             return newMovieModalData;
           });
         }}
