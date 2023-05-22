@@ -4,14 +4,20 @@ import Header from "./Header.jsx";
 import Modal from "./Modal.jsx";
 import MovieRow from "./MovieRow.jsx";
 import MovieModal from "./MovieModal";
+import { BottomScrollListener } from "react-bottom-scroll-listener";
 
 function App() {
   const [openModal, setOpenModal] = useState(false);
   const [rowData, setRowData] = useState([]);
   const [movieModalData, setMovieModalData] = useState({});
   const [movieModalPosition, setMovieModalPosition] = useState({});
+  const [apiListPage, setApiListPage] = useState(1);
 
   useEffect(() => {
+    fetchData();
+  }, []);
+
+  function fetchData() {
     let token =
       "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI0ODNjNzgwYTI2OTJmMDY2ZTFmNDRmZDE0MDk0OWZjMyIsInN1YiI6IjY0MjgwODM3OGRlMGFlMDBkNWYyZTQ3YSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.zfuZxZ3HeVCWihkkBfM8sAgPJWT_ujyJh1pjy4XUGoM";
 
@@ -23,43 +29,58 @@ function App() {
       },
     };
 
-    let promise1 = fetch("https://api.themoviedb.org/3/list/1", options);
-    let promise2 = fetch("https://api.themoviedb.org/3/list/2", options);
-    let promise3 = fetch("https://api.themoviedb.org/3/list/3", options);
+    let promise1 = fetch(
+      `https://api.themoviedb.org/3/list/${apiListPage}`,
+      options
+    );
+    let promise2 = fetch(
+      `https://api.themoviedb.org/3/list/${apiListPage + 1}`,
+      options
+    );
+    let promise3 = fetch(
+      `https://api.themoviedb.org/3/list/${apiListPage + 2}`,
+      options
+    );
 
-    Promise.all([promise1, promise2, promise3]).then((responses) => {
-      // let promise1 = responses[0].json();
-      // let promise2 = responses[1].json();
-      // let promise3 = responses[2].json();
-      let promises = responses.map((response) => response.json());
+    Promise.all([promise1, promise2, promise3])
+      .then((responses) => {
+        let promises = responses.map((response) => response.json());
 
-      Promise.all(promises).then((allData) => {
-        console.log("allData", allData);
-        setRowData(allData);
-      });
-    });
-  }, []);
+        Promise.all(promises)
+          .then((newRowData) => {
+            let allRowData = Array.from(rowData).concat(newRowData);
+            setRowData(allRowData);
+            setApiListPage(apiListPage + 3);
+          })
+          .catch((e) => console.log(e));
+      })
+      .catch((e) => console.log(e));
+  }
 
   return (
     <div className="app">
       <Header setOpenModal={setOpenModal} />
       <main>
-        {openModal ? <Modal setOpenModal={setOpenModal} /> : null}
         <MovieModal
           data={movieModalData}
           setMovieModalData={setMovieModalData}
           position={movieModalPosition}
         />
+        {openModal && <Modal setOpenModal={setOpenModal} />}
 
-        {rowData.map((rowDataObject) => (
-          <MovieRow
-            key={rowDataObject.id}
-            data={rowDataObject}
-            setMovieModalData={setMovieModalData}
-            setMovieModalPosition={setMovieModalPosition}
-          />
-        ))}
+        {rowData.map((rowDataObject, index) =>
+          rowDataObject.items.length ? (
+            <MovieRow
+              index={index}
+              key={rowDataObject.id}
+              data={rowDataObject}
+              setMovieModalData={setMovieModalData}
+              setMovieModalPosition={setMovieModalPosition}
+            />
+          ) : null
+        )}
       </main>
+      <BottomScrollListener onBottom={fetchData} debounce={1000} />
     </div>
   );
 }
