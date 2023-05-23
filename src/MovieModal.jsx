@@ -2,10 +2,15 @@ import React, { useRef } from "react";
 import { CSSTransition } from "react-transition-group";
 import "./MovieModal.css";
 
-function MovieModal({ data, position, setMovieModalData }) {
+function MovieModal({ data, position, setMovieModalData, genres }) {
   const imgUrl = "https://image.tmdb.org/t/p/w500/";
   const ref = useRef(null);
-  // console.log(data);
+
+  function getGenreWord(genreId) {
+    let genreObj = genres.find((genre) => genre.id === genreId);
+    return genreObj.name;
+  }
+
   return (
     <CSSTransition
       nodeRef={ref}
@@ -49,7 +54,7 @@ function MovieModal({ data, position, setMovieModalData }) {
             <div className="movie-details_genre">
               {data.genre_ids &&
                 data.genre_ids.map((genreId) => (
-                  <span key={genreId}>{genreId}</span>
+                  <span key={genreId}>{getGenreWord(genreId)}</span>
                 ))}
             </div>
           </div>

@@ -16,10 +16,10 @@ function App() {
 
   useEffect(() => {
     fetchData();
-    fetchGenre();
+    fetchGenres();
   }, []);
 
-  function fetchGenre() {
+  function fetchGenres() {
     let token =
       "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI0ODNjNzgwYTI2OTJmMDY2ZTFmNDRmZDE0MDk0OWZjMyIsInN1YiI6IjY0MjgwODM3OGRlMGFlMDBkNWYyZTQ3YSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.zfuZxZ3HeVCWihkkBfM8sAgPJWT_ujyJh1pjy4XUGoM";
 
@@ -34,7 +34,7 @@ function App() {
     fetch(`https://api.themoviedb.org/3/genre/movie/list`, options)
       .then((response) => response.json())
       .then((data) => {
-        setGenres(data);
+        setGenres(data.genres);
       });
   }
 
@@ -83,6 +83,7 @@ function App() {
       <Header setOpenModal={setOpenModal} />
       <main>
         <MovieModal
+          genres={genres}
           data={movieModalData}
           setMovieModalData={setMovieModalData}
           position={movieModalPosition}
