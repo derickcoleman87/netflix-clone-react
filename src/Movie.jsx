@@ -25,6 +25,8 @@ function Movie({ data, translate, setMovieModalData, setMovieModalPosition }) {
       }}
       onMouseLeave={() => {
         //clear timeout
+        console.log("mouse leave");
+
         clearTimeout(timeout);
       }}
     >

@@ -12,10 +12,31 @@ function App() {
   const [movieModalData, setMovieModalData] = useState({});
   const [movieModalPosition, setMovieModalPosition] = useState({});
   const [apiListPage, setApiListPage] = useState(1);
+  const [genres, setGenres] = useState([]);
 
   useEffect(() => {
     fetchData();
+    fetchGenre();
   }, []);
+
+  function fetchGenre() {
+    let token =
+      "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI0ODNjNzgwYTI2OTJmMDY2ZTFmNDRmZDE0MDk0OWZjMyIsInN1YiI6IjY0MjgwODM3OGRlMGFlMDBkNWYyZTQ3YSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.zfuZxZ3HeVCWihkkBfM8sAgPJWT_ujyJh1pjy4XUGoM";
+
+    let options = {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    };
+
+    fetch(`https://api.themoviedb.org/3/genre/movie/list`, options)
+      .then((response) => response.json())
+      .then((data) => {
+        setGenres(data);
+      });
+  }
 
   function fetchData() {
     let token =
