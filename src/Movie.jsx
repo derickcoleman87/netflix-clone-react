@@ -5,7 +5,7 @@ function Movie({ data, translate, setMovieModalData, setMovieModalPosition }) {
   const imgUrl = "https://image.tmdb.org/t/p/w500/";
   const movieRef = useRef(null);
 
-  let timeout = 0;
+  let timeout = useRef(null);
 
   return (
     <div
@@ -14,20 +14,21 @@ function Movie({ data, translate, setMovieModalData, setMovieModalPosition }) {
       // style={{ transform: `translateX(${translate}px)` }}
       onMouseEnter={() => {
         console.log("mouse enter");
-        timeout = setTimeout(() => {
-          setMovieModalData(data);
-          let movieClientRect = movieRef.current.getBoundingClientRect();
-          setMovieModalPosition({
-            top: movieClientRect.top,
-            left: movieClientRect.left,
-          });
+        timeout.current = setTimeout(() => {
+          if (timeout.current) {
+            setMovieModalData(data);
+            let movieClientRect = movieRef.current.getBoundingClientRect();
+            setMovieModalPosition({
+              top: movieClientRect.top,
+              left: movieClientRect.left,
+            });
+          }
         }, 500);
       }}
       onMouseLeave={() => {
         //clear timeout
         console.log("mouse leave");
-
-        clearTimeout(timeout);
+        timeout.current = null;
       }}
     >
       <img src={imgUrl + data.backdrop_path} alt={data.name} />

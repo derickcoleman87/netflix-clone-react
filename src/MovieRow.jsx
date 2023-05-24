@@ -53,6 +53,7 @@ function MovieRow({ data, setMovieModalData, setMovieModalPosition }) {
           className="left-arrow"
           onClick={() => {
             if (page !== 0) setPage(page - 1);
+            console.log(page);
           }}
         >
           {"<"}
@@ -60,7 +61,7 @@ function MovieRow({ data, setMovieModalData, setMovieModalPosition }) {
         {data.items.map((movie) => (
           <Movie
             data={movie}
-            key={`${Math.random()}-${movie.id}`}
+            key={`${movie.id}`}
             translate={-numOfMoviesPerPage * page * 229}
             setMovieModalData={setMovieModalData}
             setMovieModalPosition={setMovieModalPosition}
@@ -69,24 +70,15 @@ function MovieRow({ data, setMovieModalData, setMovieModalPosition }) {
         <div
           className="right-arrow"
           onClick={() => {
+            console.log("click");
             if (page !== lastPageNumber) setPage(page + 1);
+            console.log(lastPageNumber);
           }}
         >
           {">"}
         </div>
       </div>
     </div>
-
-    // <div className="movie-row">
-    //   <h4>{props.title}</h4>
-    //   <div className="images-container">
-    //     <img src={Encanto} alt="encanto" />
-    //     <img src={GlassOnion} alt="The movie glass onion" />
-    //     <img src={StrangeWorld} alt="The movie strange world" />
-    //     <img src={Zombieland} alt="The movie zombieland" />
-    //     <img src={Up} alt="The movie up" />
-    //   </div>
-    // </div>
   );
 }
 
